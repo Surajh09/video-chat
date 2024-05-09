@@ -1,0 +1,17 @@
+services:
+  auth-backend:
+    build:
+      context: ./auth-backend
+    ports:
+      -"3000:3000"
+    networks:
+      -dev
+    
+  client:
+    build:
+      context: ./client
+    volumes:
+      - staticbuild:/app/out
+    networks:
+      - dev
+    
